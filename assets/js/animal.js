@@ -1,4 +1,4 @@
-export default class Animal {
+export  class Animal {
     constructor(nombre, edad, img, comentarios, sonido) {
         let _nombre = nombre;
         let _edad = edad;
