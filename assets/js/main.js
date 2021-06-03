@@ -35,16 +35,16 @@ registrar.addEventListener('click', async () => {
     let imagenOso = oso.img;
     let imagenSerpiente = serpiente.img;
 
-    if (!imagenAguila) {
+    if (nombre.value== 'Aguila') {
         mostrarImagen(imagenAguila)       
-    } else if (!imagenLeon){
+    } else if (nombre.value== 'Leon'){
         mostrarImagen(imagenLeon)     
-    }else if(!imagenLobo){
+    }else if(nombre.value== 'Lobo'){
         mostrarImagen(imagenLobo)
     
-    }else if(!imagenSerpiente){   
+    }else if(nombre.value== 'Serpiente'){   
         mostrarImagen(imagenSerpiente)
-    }else if(!imagenOso){
+    }else if(nombre.value== 'Oso'){
         mostrarImagen(imagenOso)
     }
 
@@ -57,8 +57,8 @@ registrar.addEventListener('click', async () => {
 const mostrarImagen = (imagenAnimal) => {
 
     imagen.setAttribute('src', `assets/imgs/${imagenAnimal}`)
-    imagen.setAttribute('width', '80%')
-    imagen.setAttribute('alt', '80%')
+    imagen.setAttribute('width', '90%')
+    imagen.setAttribute('alt', '100%')
     /*  */
 
 }
