@@ -4,7 +4,7 @@ import {
 
 export default class Lobo extends Animal {
     constructor(nombre, edad, img, comentarios, sonido) {
-        super(nombre, edad, img, comentario, sonido)
+        super(nombre, edad, img, comentarios, sonido)
     }
     Aullar(){
         
