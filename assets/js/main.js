@@ -1,4 +1,3 @@
-
 import Aguila from './aguila.js'
 import Leon from './leon.js'
 import Lobo from './lobo.js'
@@ -56,13 +55,14 @@ registrar.addEventListener('click', async () => {
             console.log(aguila);
             animales.push(aguila);
         }
-        
+
         img.appendChild(imagen);
-        nombre='';
-        edad='';
-        comentario=''
+        nombre = '';
+        edad = '';
+        comentario = ''
         console.log(animales)
-     
+        mostrarDom();
+
     } else {
         alert('Tiene que ingresar todos los datos');
     }
@@ -70,7 +70,25 @@ registrar.addEventListener('click', async () => {
 });
 //mostrar imagen
 const mostrarImagen = (imagenAnimal) => {
-    imagen.setAttribute('src', `assets/imgs/${imagenAnimal}`)
-    imagen.setAttribute('width', '87%')
-    imagen.setAttribute('alt', '100%')
+    imagen.setAttribute('src', `assets/imgs/${imagenAnimal}`);
+    imagen.setAttribute('width', '87%');
+    imagen.setAttribute('alt', '100%');
+}
+//mostrar los aninmales registrados
+const mostrarDom = () => {
+    const caja = document.getElementById('Animales');
+    let parrafo = document.createElement('p');
+    let img = document.createElement('img')
+    let animal = animales
+    animal
+    for (let i = 0; i < animal.length; i++) {
+        console.log('pase por aquí')
+        let imagenAnim=animal[i].img
+        img.setAttribute('src',`assets/imgs/${imagenAnim}`)
+        img.setAttribute('width', '20%');
+        img.setAttribute('alt', '20%');
+        parrafo.append(img);
+        caja.append(parrafo);
+      
+    }
 }
