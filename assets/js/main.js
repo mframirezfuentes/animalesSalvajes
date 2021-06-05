@@ -42,8 +42,13 @@ registrar.addEventListener('click', async () => {
             animal = new Aguila(nombre.value, edad.value, datos.animales[4].imagen, comentario.value, datos.animales[4].sonido)
             let imagenAguila = animal.img;
             mostrarImagen(imagenAguila);
+
         }
         img.appendChild(imagen);
+        nombre.selectedIndex = 0;
+        edad.selectedIndex = 0;
+        comentario.value = ""
+        img.setAttribute=""
         animales.push(animal)
         console.log(animales)
         mostrarTabla();
@@ -61,13 +66,17 @@ const mostrarTabla = () => {
     let animalesTemplate = document.getElementById('Animales');
     animalesTemplate.innerHTML = "";
     animales.forEach((a, i) => {
-        animalesTemplate.innerHTML += `<div class="px-3 pb-2 animales" data-fighter="${a.getNombre()}">
-        <div class="card">
-             <img src="assets/imgs/${a.getImg()}" alt="10" width="10"
+        animalesTemplate.innerHTML += `<div class="col-3>
+        <div class="px-3 pb-2 animales" data-fighter="${a.getNombre()}">
+        <div class="card-deck ml-1">
+        <div class="card" style="width: 10rem;">
+             <img src="assets/imgs/${a.getImg()}" alt="10" width="10 onclick="verDatos"
          class="card-img-top" />
           <div class="card-body">
             <button class="btn btn-outline-warning" onclick="activarSonido('${i}')">Sonido</button>
              </div>
+              </div>
+              </div>
               </div>
         </div>`
     })
