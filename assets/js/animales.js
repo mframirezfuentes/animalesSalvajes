@@ -7,7 +7,7 @@ class Aguila extends Animal {
         super(nombre, edad, img, comentarios, sonido)
     }
     Chillar() {
-
+        return this.sonido;
     }
 }
 class Leon extends Animal {
@@ -15,7 +15,7 @@ class Leon extends Animal {
         super(nombre, edad, img, comentarios, sonido)
     }
     Rugir() {
-
+        return this.sonido;
     }
 }
 class Lobo extends Animal {
@@ -23,7 +23,7 @@ class Lobo extends Animal {
         super(nombre, edad, img, comentarios, sonido)
     }
     Aullar() {
-
+        return this.sonido;
     }
 }
 class Oso extends Animal {
@@ -31,20 +31,21 @@ class Oso extends Animal {
         super(nombre, edad, img, comentarios, sonido)
     }
     Gruñir() {
-
+        return this.sonido;
     }
 }
 class Serpiente extends Animal {
     constructor(nombre, edad, img, comentarios, sonido) {
         super(nombre, edad, img, comentarios, sonido)
     }
-    Sisear() {
-
-    }
+    Sisear() 
+    {return this.sonido;}
 }
 
-export{
+export {
     Aguila,
     Serpiente,
-    Lobo, Leon,Oso
+    Lobo,
+    Leon,
+    Oso
 }
