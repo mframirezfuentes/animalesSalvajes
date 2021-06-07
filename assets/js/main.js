@@ -12,7 +12,6 @@ import {
 from './datos.js'
 const animales = [];
 let img = document.getElementById('preview')
-let imagen = document.createElement('img')
 let audio = document.getElementById('player')
 const registrar = document.getElementById('btnRegistrar');
 let nombre = document.getElementById('animal');
@@ -24,26 +23,22 @@ registrar.addEventListener('click', async () => {
         let datos = await mandarDatos.mostrar;
         if (nombre.value == 'Leon') {
             animal = new Leon(nombre.value, edad.value, datos.animales[0].imagen, comentario.value, datos.animales[0].sonido);
-            let imagenLeon = animal.img;  
         } else if (nombre.value == 'Lobo') {
             animal = new Lobo(nombre.value, edad.value, datos.animales[1].imagen, comentario.value, datos.animales[1].sonido);
-            let imagenLobo = animal.img;   
         } else if (nombre.value == 'Oso') {
-            animal = new Oso(nombre.value, edad.value, datos.animales[2].imagen, comentario.value, datos.animales[1].sonido);
-            let imagenOso = animal.img;        
+            animal = new Oso(nombre.value, edad.value, datos.animales[2].imagen, comentario.value, datos.animales[2].sonido);
         } else if (nombre.value == 'Serpiente') {
-            animal = new Serpiente(nombre.value, edad.value, datos.animales[3].imagen, comentario.value, datos.animales[1].sonido);
-            let imagenSerpiente = animal.img;         
+            animal = new Serpiente(nombre.value, edad.value, datos.animales[3].imagen, comentario.value, datos.animales[3].sonido);
         } else if (nombre.value == 'Aguila') {
             animal = new Aguila(nombre.value, edad.value, datos.animales[4].imagen, comentario.value, datos.animales[4].sonido)
-            let imagenAguila = animal.img;
-     
+       
+
         }
-        img.appendChild(imagen);
+        /*        img.appendChild(imagen); */
         nombre.selectedIndex = 0;
         edad.selectedIndex = 0;
         comentario.value = ""
-        img.setAttribute()="none"
+        img.setAttribute('src', '')
         animales.push(animal)
         mostrarTabla();
         console.log(animales)
@@ -91,32 +86,33 @@ window.sonido = (i) => {
         audio.innerHTML = `<audio src="assets/sounds/${animal.Rugir()}"></audio>`
     } else if (animal.getNombre() == 'Lobo') {
         console.log('pase por aquí')
-        animal.Aullar()
+        console.log(animal.Aullar())
     } else if (animal.getNombre() == 'Oso') {
         console.log('pase por aquí')
-        animal.Gruñir();
+        console.log(animal.Gruñir());
     } else if (animal.getNombre() == 'Serpiente') {
         console.log('pase por aquí')
-        animal.Sisear();
+        console.log(animal.Sisear());
     } else if (animal.getNombre() == 'Aguila') {
         console.log('pase por aquí')
-        animal.Chillar();
+        console.log(animal.Chillar());
     }
 }
 document.getElementById('animal').addEventListener('change',
     function cambiarImg() {
         let nombre = document.getElementById('animal')
         if (nombre.value == 'Leon') {
-        
-            img.innerHTML=`<img src="assets/imgs/Leon.png" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Leon.png" width="200">`
         } else if (nombre.value == 'Lobo') {
-            img.innerHTML=`<img src="assets/imgs/Lobo.jpg" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Lobo.jpg" width="200">`
         } else if (nombre.value == 'Oso') {
-            img.innerHTML=`<img src="assets/imgs/Oso.jpg" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Oso.jpg" width="200">`
         } else if (nombre.value == 'Serpiente') {
-            img.innerHTML=`<img src="assets/imgs/Serpiente.jpg" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Serpiente.jpg" width="200">`
         } else if (nombre.value == 'Aguila') {
-            img.innerHTML=`<img src="assets/imgs/Aguila.png" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Aguila.png" width="200">`
+        } else if (nombre.value == disable) {
+            img.innerHTML = `<img src=''>`
         }
 
     })
