@@ -10,7 +10,7 @@ import {
     mandarDatos
 }
 from './datos.js'
-const animales = [];
+let animales = [];
 let img = document.getElementById('preview')
 let audio = document.getElementById('player')
 const registrar = document.getElementById('btnRegistrar');
@@ -31,14 +31,11 @@ registrar.addEventListener('click', async () => {
             animal = new Serpiente(nombre.value, edad.value, datos.animales[3].imagen, comentario.value, datos.animales[3].sonido);
         } else if (nombre.value == 'Aguila') {
             animal = new Aguila(nombre.value, edad.value, datos.animales[4].imagen, comentario.value, datos.animales[4].sonido)
-       
-
         }
-        /*        img.appendChild(imagen); */
         nombre.selectedIndex = 0;
         edad.selectedIndex = 0;
         comentario.value = ""
-        img.setAttribute('src', '')
+        img.innerHTML = `<img src="">`
         animales.push(animal)
         mostrarTabla();
         console.log(animales)
@@ -66,9 +63,9 @@ const mostrarTabla = () => {
     })
 }
 window.verDatos = (i) => {
-    const animal = animales[i];
+    let datos = animales[i];
     const modal = document.getElementsByClassName('modal-body')[0];
-    animal.forEach(a => {
+    datos.forEach(a => {
         modal.innerHTML = `<div>
         <img src="assets/imgs/${a.getImg()}" alt="10" width="10/>
         </div>
@@ -78,25 +75,10 @@ window.verDatos = (i) => {
     })
 }
 window.sonido = (i) => {
-    const animal = animales[i];
-    let sonido = document.getElementById('sonido')
-    if (animal.getNombre() == 'Leon') {
-        console.log('pase por aquí')
-        console.log(animal.Rugir())
-        audio.innerHTML = `<audio src="assets/sounds/${animal.Rugir()}"></audio>`
-    } else if (animal.getNombre() == 'Lobo') {
-        console.log('pase por aquí')
-        console.log(animal.Aullar())
-    } else if (animal.getNombre() == 'Oso') {
-        console.log('pase por aquí')
-        console.log(animal.Gruñir());
-    } else if (animal.getNombre() == 'Serpiente') {
-        console.log('pase por aquí')
-        console.log(animal.Sisear());
-    } else if (animal.getNombre() == 'Aguila') {
-        console.log('pase por aquí')
-        console.log(animal.Chillar());
-    }
+    let animal = animales[i];
+    let sonido=animal.getSonido();
+    audio.src=`assets/sounds/${sonido}`
+    audio.play();
 }
 document.getElementById('animal').addEventListener('change',
     function cambiarImg() {
@@ -106,13 +88,10 @@ document.getElementById('animal').addEventListener('change',
         } else if (nombre.value == 'Lobo') {
             img.innerHTML = `<img src="assets/imgs/Lobo.jpg" width="200">`
         } else if (nombre.value == 'Oso') {
-            img.innerHTML = `<img src="assets/imgs/Oso.jpg" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Oso.jpg" width="250">`
         } else if (nombre.value == 'Serpiente') {
-            img.innerHTML = `<img src="assets/imgs/Serpiente.jpg" width="200">`
+            img.innerHTML = `<img src="assets/imgs/Serpiente.jpg" width="250" alt="200">`
         } else if (nombre.value == 'Aguila') {
             img.innerHTML = `<img src="assets/imgs/Aguila.png" width="200">`
-        } else if (nombre.value == disable) {
-            img.innerHTML = `<img src=''>`
         }
-
     })
