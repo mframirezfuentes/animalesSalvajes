@@ -64,7 +64,7 @@ const mostrarTabla = () => {
 }
 window.verDatos = (i) => {
     let datos = animales[i];
-    const modal = document.getElementsByClassName('modal-body')[0];
+    const modal = document.querySelector('#datos');
     datos.forEach(a => {
         modal.innerHTML = `<div>
         <img src="assets/imgs/${a.getImg()}" alt="10" width="10/>
