@@ -38,7 +38,6 @@ registrar.addEventListener('click', async () => {
         img.innerHTML = `<img src="">`
         animales.push(animal)
         mostrarTabla();
-        console.log(animales)
     } else {
         alert('Tiene que ingresar todos los datos');
     }
@@ -51,7 +50,7 @@ const mostrarTabla = () => {
         <div class="px-3 pb-2 animales" data-fighter="${a.getNombre()}">
         <div class="card-deck ml-1">
         <div class="card" style="width: 10rem;">
-             <img src="assets/imgs/${a.getImg()}" alt="10" width="10 onclick="verDatos(${i})"
+             <img src="assets/imgs/${a.getImg()}" alt="10" width="10" onclick="verDatos(${i})" data-toggle="modal" data-target="#datos"
          class="card-img-top" />
           <div class="card-body">
             <button class="btn btn-outline-warning"id="sonido" onclick="sonido(${i})">Sonido</button>
@@ -63,21 +62,23 @@ const mostrarTabla = () => {
     })
 }
 window.verDatos = (i) => {
-    let datos = animales[i];
-    const modal = document.querySelector('#datos');
-    datos.forEach(a => {
+    let datos = animales[i];   
+    let modal = document.getElementById('datosAnimal');
+    console.log(datos.getEdad())
+   
         modal.innerHTML = `<div>
-        <img src="assets/imgs/${a.getImg()}" alt="10" width="10/>
+        <img src="assets/imgs/${datos.getImg()}" alt="100" width="100"/>
         </div>
-        <p>${a.getEdad()}</p>
-        <p>${a.getComentarios()}</p>`
-        console.log('pase por aquí')
-    })
+        <p>Edad: ${datos.getEdad()}</p>
+        <p>Comentarios: ${datos.getComentarios()}</p>
+        </div>`
+
+   
 }
 window.sonido = (i) => {
     let animal = animales[i];
-    let sonido=animal.getSonido();
-    audio.src=`assets/sounds/${sonido}`
+    let sonido = animal.getSonido();
+    audio.src = `assets/sounds/${sonido}`
     audio.play();
 }
 document.getElementById('animal').addEventListener('change',
